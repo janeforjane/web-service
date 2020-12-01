@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DemoServiceService" targetNamespace="http://ws/">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws/" elementFormDefault="unqualified" targetNamespace="http://ws/" version="1.0">
+
+            <xs:element name="add" type="tns:add"/>
+
+            <xs:element name="addResponse" type="tns:addResponse"/>
+
+            <xs:element name="getAllMessage" type="tns:getAllMessage"/>
+
+            <xs:element name="getAllMessageResponse" type="tns:getAllMessageResponse"/>
+
+            <xs:element name="getMessage" type="tns:getMessage"/>
+
+            <xs:element name="getMessageResponse" type="tns:getMessageResponse"/>
+
+            <xs:complexType name="add">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="user" type="xs:string"/>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="addResponse">
+                <xs:sequence>
+                    <xs:element name="addResult" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="getAllMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="user" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="getAllMessageResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="getAllMessageResult" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="getMessage">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="user" type="xs:string"/>
+                    <xs:element name="index" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+
+            <xs:complexType name="getMessageResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="getMessageResult" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="add">
+        <wsdl:part element="tns:add" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addResponse">
+        <wsdl:part element="tns:addResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getAllMessage">
+        <wsdl:part element="tns:getAllMessage" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getAllMessageResponse">
+        <wsdl:part element="tns:getAllMessageResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getMessage">
+        <wsdl:part element="tns:getMessage" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getMessageResponse">
+        <wsdl:part element="tns:getMessageResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="DemoService">
+        <wsdl:operation name="add">
+            <wsdl:input message="tns:add" name="add">
+            </wsdl:input>
+            <wsdl:output message="tns:addResponse" name="addResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAllMessage">
+            <wsdl:input message="tns:getAllMessage" name="getAllMessage">
+            </wsdl:input>
+            <wsdl:output message="tns:getAllMessageResponse" name="getAllMessageResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMessage">
+            <wsdl:input message="tns:getMessage" name="getMessage">
+            </wsdl:input>
+            <wsdl:output message="tns:getMessageResponse" name="getMessageResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DemoServiceServiceSoapBinding" type="tns:DemoService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="add">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="add">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getAllMessage">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getAllMessage">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getAllMessageResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMessage">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getMessage">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getMessageResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="DemoServiceService">
+        <wsdl:port binding="tns:DemoServiceServiceSoapBinding" name="DemoServicePort">
+            <soap:address location="http://localhost:8080/wsSoap-1.0-SNAPSHOT/DemoService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

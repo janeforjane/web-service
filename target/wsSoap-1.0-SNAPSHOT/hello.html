@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>webTmp2</title>
+</head>
+<body>
+
+<form method="get" id="form" action="CalcServlet">
+
+    <fieldset style="border:1px #ffb0dd solid;">
+        <legend><span style="font-family:Monotype Corsiva;color:#cb6ac6;font-size:18px">Sum</span> </legend>
+
+        <div>
+            <label>Enter first number:</label>
+
+            <input name="user first number_sum" type="user-string" placeholder="enter only numbers" required autofocus>
+        </div><br>
+
+        <div>
+            <label>Enter second number:</label>
+
+            <input name="user second number_sum" type="number" placeholder="enter only numbers" required >
+        </div><br>
+
+        <div>
+            <input name="enter" type="submit" value="Enter">
+            <input name="reset" type="reset" value="Clear">
+        </div>
+    </fieldset>
+</form>
+<form method="post" id="form2" action="CalcServlet">
+
+    <fieldset style="border:1px #78b6ff solid;">
+
+
+        <legend><span style="font-family:Monotype Corsiva;color:#895f8b;font-size:18px">Multiply</span> </legend>
+
+        <div>
+            <label>Enter first number:</label>
+
+            <input name="user first number_mltpl" type="number" placeholder="enter only numbers" required >
+
+        </div><br>
+
+        <div>
+            <label>Enter second number:</label>
+
+            <input name="user second number_mltpl" type="number" placeholder="enter only numbers" required >
+
+        </div><br>
+
+        <div>
+            <input name="enter" type="submit" value="Enter">
+            <input name="reset" type="reset" value="Clear">
+        </div>
+
+
+    </fieldset>
+</form>
+</body>
+</html>
